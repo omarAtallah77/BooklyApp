@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/utils/Styles.dart';
 import 'AppBar.dart';
-import 'ListViewitem.dart';
+import 'BooksListView.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -9,12 +10,15 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
           CustomAppBar() ,
-
-              Listviewitem(),
-           Text("data")
+          BooksListView() ,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0 , vertical: 30.0),
+            child: Text("Best Seller", style: Styles.titleMedium),
+          ),
         ],
       ),
     );

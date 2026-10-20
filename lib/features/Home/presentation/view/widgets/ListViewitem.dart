@@ -7,19 +7,16 @@ class Listviewitem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
-      child: AspectRatio(
-        aspectRatio: 2/3, // Adjust the aspect ratio as needed
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(assetsData.logo),
-              fit: BoxFit.fill,
-            ),
-            borderRadius: BorderRadius.circular(30),
-            color: Colors.white.withOpacity(0.05),
+    return AspectRatio(
+      aspectRatio: 2/3, // Adjust the aspect ratio as needed
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(assetsData.test),
+            fit: BoxFit.fill,
           ),
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white.withOpacity(0.05),
         ),
       ),
     );
