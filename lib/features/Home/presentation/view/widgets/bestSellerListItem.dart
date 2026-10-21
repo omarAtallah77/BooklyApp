@@ -12,7 +12,7 @@ class BestSellerListItem extends StatelessWidget {
       child: Row(
         children: [
           AspectRatio(
-            aspectRatio: 2/3, // Adjust the aspect ratio as needed
+            aspectRatio: 2 / 3, // Adjust the aspect ratio as needed
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -23,23 +23,35 @@ class BestSellerListItem extends StatelessWidget {
                 color: Colors.white.withOpacity(0.05),
               ),
             ),
-          ) ,
-          SizedBox(width: 20,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Harry potter \nand the Goblet of fire', style: Styles.titleMedium,),
-              Text('J.K.Rowling',),
-              Row(
-                children: [
-                  Text('19.99\$', style: Styles.titleMedium,),
-                  SizedBox(width: 120,),
-                  Icon(Icons.star ,color: Colors.yellow,),
-                  Text('4.8')
-                ],
-              )
-            ],
-          )
+          ),
+          SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    'Harry potter and the Goblet of fire',
+                    style: Styles.titleMedium,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Text('J.K.Rowling'),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Text('19.99\$', style: Styles.titleMedium),
+                      Spacer(),
+                      Icon(Icons.star, color: Colors.yellow),
+                      Text('4.8'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
