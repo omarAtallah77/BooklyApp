@@ -8,7 +8,7 @@ class BestSellerListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      shrinkWrap: true,   // to make listview take the size of their children
+      //shrinkWrap: true,   // to make listview take the size of their children
       padding: EdgeInsets.zero,  // to remove the default padding of the listview
       physics: NeverScrollableScrollPhysics(),  // to make listview scroll stop
       itemCount: 5,
