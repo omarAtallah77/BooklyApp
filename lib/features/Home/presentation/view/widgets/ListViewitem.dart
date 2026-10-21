@@ -12,7 +12,7 @@ class Listviewitem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(assetsData.test),
+            image: AssetImage(assetsData.testBook),
             fit: BoxFit.fill,
           ),
           borderRadius: BorderRadius.circular(30),
