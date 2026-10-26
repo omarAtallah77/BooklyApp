@@ -19,7 +19,7 @@ class HomeDetailsView extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.close),
           onPressed: () {
-            GoRouter.of(context).go(viewRoutes.homeView);
+            GoRouter.of(context).pop();
 
           },
         ),

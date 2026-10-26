@@ -18,6 +18,6 @@ class SimilarBookListview extends StatelessWidget {
           );
         },
       ),
-    );;
+    );
   }
 }

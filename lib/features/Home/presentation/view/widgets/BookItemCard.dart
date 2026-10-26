@@ -6,14 +6,14 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/routers.dart';
 import 'RatingItem.dart';
 
-class BestSellerListItem extends StatelessWidget {
-  const BestSellerListItem({super.key});
+class BookItemCard extends StatelessWidget {
+  const BookItemCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).go(viewRoutes.homeDetailsView);
+        GoRouter.of(context).push(viewRoutes.homeDetailsView);
       },
       child: SizedBox(
         height: 160,

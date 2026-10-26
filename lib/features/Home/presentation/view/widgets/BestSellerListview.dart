@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'bestSellerListItem.dart';
+import 'BookItemCard.dart';
 
 class BestSellerListview extends StatelessWidget {
   const BestSellerListview({super.key});
@@ -15,7 +15,7 @@ class BestSellerListview extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: BestSellerListItem(),
+          child: BookItemCard(),
         );
       },
     );
