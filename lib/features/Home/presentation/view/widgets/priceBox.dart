@@ -12,7 +12,7 @@ class PriceBoxWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 80,
+            height: 60,
             width: MediaQuery.of(context).size.width * 0.45,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -30,9 +30,9 @@ class PriceBoxWidget extends StatelessWidget {
           ),
           Container(
             width: MediaQuery.of(context).size.width * 0.45,
-            height: 80,
+            height: 60,
             decoration: BoxDecoration(
-              color: Color(0xffff9800),
+              color: Color(0xff984227),
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16),
                 bottomRight: Radius.circular(16),

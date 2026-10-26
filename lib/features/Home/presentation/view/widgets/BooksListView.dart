@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ListViewitem.dart';
+import 'BookImageItem.dart';
 
 class BooksListView extends StatelessWidget {
   const BooksListView({super.key});

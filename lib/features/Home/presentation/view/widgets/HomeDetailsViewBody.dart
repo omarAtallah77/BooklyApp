@@ -1,8 +1,9 @@
+import 'package:bookly_app/features/Home/presentation/view/widgets/SimilarBookListview.dart';
 import 'package:bookly_app/features/Home/presentation/view/widgets/priceBox.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/Styles.dart';
-import 'ListViewitem.dart';
+import 'BookImageItem.dart';
 import 'RatingItem.dart';
 
 class HomeDetailsViewBody extends StatelessWidget {
@@ -24,18 +25,15 @@ class HomeDetailsViewBody extends StatelessWidget {
           Text("The Jungle Book", style: Styles.textStyle30),
           SizedBox(height: 6),
           Text("Rudyard Kipling", style: Styles.textStyle18),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.star, color: Colors.yellow),
-              Text(' 4.8', style: Styles.textStyle18),
-              Text(
-                ' (2390)',
-                style: Styles.textStyle18.copyWith(color: Colors.grey),
-              ),
-            ],
-          ),
+          RatingItem(),
           PriceBoxWidget(),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text('You can also like' , style : Styles.textStyle18)
+          ),
+          SizedBox(height: 12),
+          SimilarBookListview(),
+          SizedBox(height: 6),
         ],
       ),
     );

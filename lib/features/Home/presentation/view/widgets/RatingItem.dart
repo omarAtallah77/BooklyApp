@@ -9,11 +9,14 @@ class RatingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('19.99\$', style: Styles.textStyle18),
-        Spacer(),
         Icon(Icons.star, color: Colors.yellow),
-        Text('4.8'),
+        Text('4.8', style: Styles.textStyle18),
+        Text(
+          ' (2390)',
+          style: Styles.textStyle18.copyWith(color: Colors.grey),
+        )
       ],
     );
   }

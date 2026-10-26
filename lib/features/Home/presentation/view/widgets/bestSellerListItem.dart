@@ -48,7 +48,13 @@ class BestSellerListItem extends StatelessWidget {
                   ),
                   Text('J.K.Rowling'),
                   Expanded(
-                    child: RatingItem()
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('19.99\$', style: Styles.textStyle18),
+                        RatingItem(),
+                      ],
+                    )
                   ),
                 ],
               ),
