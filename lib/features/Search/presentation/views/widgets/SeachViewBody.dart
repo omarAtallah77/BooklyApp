@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/Search/presentation/views/widgets/CustoumSearchTextField.dart';
 import 'package:flutter/material.dart';
 
 class   SearchviewBody extends StatelessWidget {
@@ -9,6 +10,11 @@ class   SearchviewBody extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              CustoumSearchTextField(),
+            ],
             
           ),
         ),
@@ -16,3 +22,4 @@ class   SearchviewBody extends StatelessWidget {
     );
   }
 }
+
