@@ -13,7 +13,7 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks()async {
     
-    final String endpoint = 'volumes?q=subject:programming&filter=free-ebooks&orderBy=newest';
+    final String endpoint = 'volumes?q=subject:programming&filter=free-ebooks&sorting=newest';
     await apiService.get(endpoint: endpoint).then((value) {
       List<BookModel> books = [];
       for (var item in value['items']) {
@@ -31,9 +31,23 @@ class HomeRepoImp implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     
-    throw UnimplementedError();
+    final String endpoint = 'volumes?q=subject:programming&filter=free-ebooks';
+    await apiService.get(endpoint: endpoint).then((value) {
+      List<BookModel> books = [];
+      for (var item in value['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return Right(books);
+    }).catchError((error) {
+      if (error is DioError) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(error.toString()));
+    });
+    
+    return Left(ServerFailure('Unknown error occurred'));
   }
 
 }
