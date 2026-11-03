@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 abstract class Failure {final String errorMessage;
   Failure(this.errorMessage);
@@ -9,21 +8,21 @@ class ServerFailure extends Failure {
   
   ServerFailure(super.errorMessage);
 
-factory ServerFailure.fromDioError(DioError dioError) {
+factory ServerFailure.fromDioError(DioException dioError) {
 
   switch (dioError.type) {
-    case DioErrorType.connectionTimeout:
+    case DioExceptionType.connectionTimeout:
       return ServerFailure('Connection timeout with API server');
-    case DioErrorType.sendTimeout:
+    case DioExceptionType.sendTimeout:
       return ServerFailure('Send timeout with API server');
-    case DioErrorType.receiveTimeout:
+    case DioExceptionType.receiveTimeout:
       return ServerFailure('Receive timeout with API server');
-    case DioErrorType.badResponse:
+    case DioExceptionType.badResponse:
       return ServerFailure(
           'Received invalid status code: ${dioError.response?.statusCode}');
-    case DioErrorType.cancel:
+    case DioExceptionType.cancel:
       return ServerFailure('Request to API server was cancelled');
-    case DioErrorType.unknown:
+    case DioExceptionType.unknown:
       if (dioError.message!.contains('SocketException')) {
         return ServerFailure(
             'No Internet connection. Please check your network settings.');
