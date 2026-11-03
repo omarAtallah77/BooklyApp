@@ -19,7 +19,7 @@ class HomeDetailsViewBody extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.8,
               width: MediaQuery.of(context).size.width * 0.5,
-              child: CustoumBookitem(),
+              child: CustoumBookitem(imageurl: '',),
             ),
             SizedBox(height: 20),
             Text("The Jungle Book", style: Styles.textStyle30),

@@ -22,7 +22,7 @@ class HomeRepoImp implements HomeRepo {
       }
       return Right(books);
     }).catchError((error) {
-      if (error is DioError) {
+      if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
       }
       return Left(ServerFailure(error.toString()));
