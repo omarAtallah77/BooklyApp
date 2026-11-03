@@ -32,7 +32,6 @@ class HomeRepoImp implements HomeRepo {
   }
 
   @override
-  @override
 Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
   try {
     final String endpoint =
