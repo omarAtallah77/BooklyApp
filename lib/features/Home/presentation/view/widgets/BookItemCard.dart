@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/Styles.dart';
 import 'package:bookly_app/core/utils/assetsdata.dart';
+import 'package:bookly_app/features/Home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,8 +8,9 @@ import '../../../../../core/utils/routers.dart';
 import 'RatingItem.dart';
 
 class BookItemCard extends StatelessWidget {
-  const BookItemCard({super.key});
-
+  const BookItemCard({super.key ,  required this.book});
+ 
+ final BookModel book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +26,9 @@ class BookItemCard extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(assetsData.testBook),
+                    image: NetworkImage(
+                      book.image ?? '',
+                    ),
                     fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.circular(20),
@@ -40,18 +44,18 @@ class BookItemCard extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'Harry potter and the Goblet of fire',
+                     book.title,
                       style: Styles.textStyle18,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Text('J.K.Rowling'),
+                  Text(book.subtitle ?? ''),
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('19.99\$', style: Styles.textStyle18),
+                        Text('Free', style: Styles.textStyle18),
                         RatingItem(),
                       ],
                     )

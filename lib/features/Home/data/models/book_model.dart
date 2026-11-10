@@ -19,7 +19,7 @@ class BookModel {
       title: volumeInfo['title'] ?? 'Unknown Title',
       subtitle: volumeInfo['subtitle'],
       authors: List<String>.from(volumeInfo['authors'] ?? []),
-      image: volumeInfo['imageLinks']?['thumbnail'],
+      image: volumeInfo['imageLinks']?['thumbnail'] ?? '',
     );
   }
 }

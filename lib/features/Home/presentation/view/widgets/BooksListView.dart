@@ -29,7 +29,7 @@ class BooksListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksError) {
-          return CustomFailureWidget(errorMessage: state.errorMessage);
+          return CustomFailureWidget(message: state.errorMessage);
         } else {
           return const CustoumloadingWidget();
         }

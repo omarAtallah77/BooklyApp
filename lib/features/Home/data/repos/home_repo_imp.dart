@@ -11,34 +11,18 @@ class HomeRepoImp implements HomeRepo {
   ApiService apiService ;
   HomeRepoImp({required this.apiService});
 
-  @override
-  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks()async {
+  
+  
     
-    final String endpoint = 'volumes?filter=free-ebooks&q=subjject:programming&sorting=newest&key=AIzaSyAaWyP3AS6nb828uj-el3AXTTd2XVnY32s';
-    await apiService.get(endpoint: endpoint).then((value) {
-      List<BookModel> books = [];
-      for (var item in value['items']) {
-        books.add(BookModel.fromJson(item));
-      }
-      return Right(books);
-    }).catchError((error) {
-      if (error is DioException) {
-        return Left(ServerFailure.fromDioError(error));
-      }
-      return Left(ServerFailure(error.toString()));
-    });
-    
-    return Left(ServerFailure('Unknown error occurred'));
-  }
-
+String key = 'AIzaSyAaWyP3AS6nb828uj-el3AXTTd2XVnY32s';
   @override
 Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
   try {
     final String endpoint =
-        'volumes?filter=free-ebooks&q=subjject:programming&key=AIzaSyAaWyP3AS6nb828uj-el3AXTTd2XVnY32s';
+        'volumes?filter=free-ebooks&q=subjject:programming&key=$key';
 
     final value = await apiService.get(endpoint: endpoint);
-    debugPrint('API Response: $value'); // Debug print to check the response
+    debugPrint('______API Response: $value'); // Debug print to check the response
 
     List<BookModel> books = [];
 
@@ -56,4 +40,29 @@ Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
   }
 }
 
+  @override
+    Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
+  try {
+    final String endpoint =
+        'volumes?filter=free-ebooks&q=subjject:computer science&orderBy=newest&key=$key';
+
+    final value = await apiService.get(endpoint: endpoint);
+    debugPrint('########API Response: $value'); // Debug print to check the response
+
+    List<BookModel> books = [];
+
+    for (var item in value['items']) {
+      books.add(BookModel.fromJson(item));
+    }
+
+    return Right(books);
+  } catch (error) {
+    if (error is DioException) {
+      return Left(ServerFailure.fromDioError(error));
+    }
+
+    return Left(ServerFailure(error.toString()));
+  }
 }
+  }
+
