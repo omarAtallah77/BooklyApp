@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/Home/data/models/book_model.dart';
 import 'package:bookly_app/features/Home/presentation/view/widgets/SimilarBookListview.dart';
 import 'package:bookly_app/features/Home/presentation/view/widgets/priceBox.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +7,8 @@ import 'BookImageItem.dart';
 import 'RatingItem.dart';
 
 class HomeDetailsViewBody extends StatelessWidget {
-  const HomeDetailsViewBody({super.key});
-
+  const HomeDetailsViewBody({super.key , required this.book});
+final BookModel book;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -19,12 +20,12 @@ class HomeDetailsViewBody extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.8,
               width: MediaQuery.of(context).size.width * 0.5,
-              child: CustoumBookitem(imageurl: '',),
+              child: CustoumBookitem(imageurl: book.image ?? '',),
             ),
             SizedBox(height: 20),
-            Text("The Jungle Book", style: Styles.textStyle30),
+            Text(book.title, style: Styles.textStyle30),
             SizedBox(height: 6),
-            Text("Rudyard Kipling", style: Styles.textStyle18),
+            Text(book.subtitle ?? "", style: Styles.textStyle18),
             RatingItem(),
             SizedBox(height: 20),
             PriceBoxWidget(),

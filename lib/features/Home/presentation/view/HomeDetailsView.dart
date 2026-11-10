@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/Home/data/models/book_model.dart';
 import 'package:bookly_app/features/Home/presentation/view/widgets/HomeDetailsViewBody.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -5,8 +6,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../constants.dart';
 
 class HomeDetailsView extends StatelessWidget {
-  const HomeDetailsView({super.key});
+  const HomeDetailsView({super.key , required this.book});
 
+final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class HomeDetailsView extends StatelessWidget {
           },
         ),
       ),
-      body: HomeDetailsViewBody(),
+      body: HomeDetailsViewBody(book: book,),
     );
   }
 }

@@ -19,7 +19,7 @@ String key = 'AIzaSyAaWyP3AS6nb828uj-el3AXTTd2XVnY32s';
 Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
   try {
     final String endpoint =
-        'volumes?filter=free-ebooks&q=subjject:programming&key=$key';
+        'volumes?filter=free-ebooks&q=programming&key=$key';
 
     final value = await apiService.get(endpoint: endpoint);
     debugPrint('______API Response: $value'); // Debug print to check the response
@@ -44,7 +44,7 @@ Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
   try {
     final String endpoint =
-        'volumes?filter=free-ebooks&q=subjject:computer science&orderBy=newest&key=$key';
+        'volumes?filter=free-ebooks&q=computer science&orderBy=newest&key=$key';
 
     final value = await apiService.get(endpoint: endpoint);
     debugPrint('########API Response: $value'); // Debug print to check the response
