@@ -64,5 +64,30 @@ Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     return Left(ServerFailure(error.toString()));
   }
 }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({required String category}) async {
+     try {
+    final String endpoint =
+        'volumes?filter=free-ebooks&q=$category&sorting=relevance&orderBy=newest&key=$key';
+
+    final value = await apiService.get(endpoint: endpoint);
+    debugPrint('########API Response: $value'); // Debug print to check the response
+
+    List<BookModel> books = [];
+
+    for (var item in value['items']) {
+      books.add(BookModel.fromJson(item));
+    }
+
+    return Right(books);
+  } catch (error) {
+    if (error is DioException) {
+      return Left(ServerFailure.fromDioError(error));
+    }
+
+    return Left(ServerFailure(error.toString()));
+  }
+  }
   }
 

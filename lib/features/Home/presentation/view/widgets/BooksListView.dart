@@ -23,7 +23,7 @@ class BooksListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CustoumBookitem(imageurl: state.books[index].image ?? '',),
+                  child: CustoumBookitem(book: state.books[index],),
                 );
               },
             ),
